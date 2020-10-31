@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Innerve20</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab" rel="stylesheet">
+     <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+ 
+ <style>
+  .card-flip > div {
+  backface-visibility: hidden;
+  transition: transform 300ms;
+  transition-timing-function: linear;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+}
+
+.card-flip:hover .card-front {
+  transform: rotateY(-180deg);
+}
+  
+.card-flip:hover .card-back {
+  transform: rotateY(0deg);
+}
+
+
+
+
+#wrapper {
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  font-size: 6em;
+  padding: 50px 0;
+}
+
+span { 
+  text-shadow: -0.06em 0 red,  0.06em 0 cyan; /* This creates the 3D effect, pretty easy, eh? */
+  letter-spacing: 0.08em; /* make sure the letters don't overlap */
+}
+
+p {
+  margin: 0;
+}
+
+/* ---------------- Stars ---------------- */
+
+
+/* ---------------- Title ---------------- */
+
+#title {
+  font-family: Helvetica, Geneva, sans-serif; /* Any font would work, but SansSerif looks better */
+}
+#title:focus {
+  outline: none;
+}
+#title span {
+  vertical-align: middle;
+  line-height: 1.0em;
+  transition: font-size 2s cubic-bezier(0, 1, 0, 1);
+}
+#title span:hover {
+  font-size: 1.2em; /* This adds a hover effect */
+  line-height: 1em;
+  transition: font-size .2s cubic-bezier(0, 0.75, 0, 1);
+}
+#title span:active {
+  font-size: 1em;
+  text-shadow: none; /* Click to disable the 3D effect */
+}
+#title span::selection {
+  background-color: red; /* This hides the selection */
+}
+
+
+/* ---------------- Slogan ---------------- */
+
+
+
+
+/* Below just some styling for the meta info */
+
+#meta {
+  color: #777;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  text-align: center;
+  text-shadow: rgba(255,255,255,0.5) 0 1px 0;
+  margin: 30px;
+}
+#meta strong { font-weight: bold; color: #000; }
+#meta p:first-child { margin-bottom: 20px; }
+#meta a { text-decoration: none; color: #7276ff; }
+#meta a:hover { color: rgba(114,118,255,0.5); }
+#meta img { vertical-align: text-bottom; }
+
+
+    h3 {
+        width: 100%;
+        font-size: 30px;
+        margin: 5px auto;
+        text-align: center;
+        color: #fff;
+        text-shadow: 0px 1px 1px #ddd,
+                     0px 2px 1px #d6d6d6,
+                     0px 3px 1px #ccc,
+                     0px 4px 1px #c5c5c5,
+                     0px 5px 1px #c1c1c1,
+                     0px 6px 1px #bbb,
+                     0px 7px 1px #777,
+                     0px 8px 3px rgba(100, 100, 100, 0.4),
+                     0px 9px 5px rgba(100, 100, 100, 0.1),
+                     0px 10px 7px rgba(100, 100, 100, 0.15),
+                     0px 11px 9px rgba(100, 100, 100, 0.2),
+                     0px 12px 11px rgba(100, 100, 100, 0.25),
+                     0px 13px 15px rgba(100, 100, 100, 0.3);
+     transition:all .8s ease-in-out;  
+      -o-transition:all .8s ease-in-out;  
+      -moz-transition:all .8s ease-in-out;  
+      -webkit-transition:all .8s ease-in-out;
+    }
+
+@media screen and (max-width:768px) { 
+body {
+        
+        background:red;
+      }
+      h3{
+        font-size:30px;
+      }
+}
+
+@media screen and (max-width:480px) { 
+body {
+        
+        background:yellow;
+      }
+      h3{
+        font-size:50px;
+      }
+}
+
+</style>
+
+ </head>
+
+<body style="background-color:#2b2b2b">
+    <!----NavigationBar---->
+    <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img src="img/innervelogo.png" style="height: 100px;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-danger border border-danger rounded-lg mr-2" href="index.html">Home </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-info border border-info rounded-lg" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Events
+        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="cse-it.html">CSE/IT</a>
+                            <a class="dropdown-item" href="ece.html">ECE Tech</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="fun-events.html">Fun Events</a>
+                            <a class="dropdown-item" href="work-seminar.html">Workshops/Seminars</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-info border border-info rounded-lg ml-2" href="sponsor.html">
+                            Sponsors
+                        </a></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-info border border-info rounded-lg mx-2" href="gallery.html">
+                            Gallery
+                        </a></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-info border border-info rounded-lg mr-2" href="social-campaign.html">
+                            Social Campaign
+                        </a>
+                    </li>
+                   <!-- <li class="nav-item">
+                        <a class="nav-link text-info border border-info rounded-lg mr-2" href="#contact">Contact Us</a>
+                    </li> -->
+                    <li class="nav-item">
+                    <a class="nav-link text-light btn btn-success rounded-lg" href="#login" data-toggle="modal" data-target="#modalLRForm" >Login</a>
+                </ul>
+
+            </div>
+        </nav>
+    </section>
+
+<!--Modal: Login / Register Form by mdbootstrap.com-->
+<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Modal cascading tabs-->
+      <div class="modal-c-tabs">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+              Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+              Register</a>
+          </li>
+        </ul>
+
+        <!-- Tab panels -->
+        <div class="tab-content">
+          <!--Panel 7-->
+          <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+            <!--Body-->
+            <div class="modal-body mb-1">
+              <div class="md-form form-sm mb-5">
+                <i class="fas fa-envelope prefix"></i>
+                <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
+              </div>
+
+              <div class="md-form form-sm mb-4">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
+              </div>
+              <div class="text-center mt-2">
+                <button class="btn btn-info">Log in </button>
+              </div>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options text-center text-md-right mt-1">
+                <p>Not registered? <a href="#" class="blue-text">Sign Up</a></p>
+                <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+              </div>
+              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+          <!--/.Panel 7-->
+
+          <!--Panel 8-->
+          <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+            <!--Body-->
+            <div class="modal-body">
+              <div class="md-form form-sm mb-5">
+                <i class="fas fa-envelope prefix"></i>
+                <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
+              </div>
+
+              <div class="md-form form-sm mb-5">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
+              </div>
+
+              <div class="md-form form-sm mb-4">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+              </div>
+
+              <div class="text-center form-sm mt-2">
+                <button class="btn btn-info">Sign up </button>
+              </div>
+
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options text-right">
+                <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
+              </div>
+              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          <!--/.Panel 8-->
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: Login / Register Form-->
+  
+
+
+<!-- ADD CONTENT HERE -->
+<div id="wrapper">
+  <p id="title" contenteditable="true" spellcheck="false"><span>FUN</span><span style="padding-left:30px">EVENTS</span></p>
+</div>
+
+<div class="container">
+    <div class="row" style="margin:70px 0px 200px 0px;">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-bottom:20px;">
+                <div class="card-front text-white bg-info">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">TREASURE</h3>
+                        <h4 class="card-title"><strong>HUNT</strong></h4>
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">TREASURE HUNT</h4>
+                        <p class="card-text" style="font-size:14px">
+                        Prize: Coupons worth Rs.200-300 each<br>
+Day: 7.11.2020<br>
+Time of event: Full Day<br>
+Duration: 60 minutes<br>
+Participation: Max 4 in a team<br><br>
+
+You must figure out all clues to get the chance to prove your mettle and win exciting prizes. Sail into the heart of the Caribbean in the...
+
+                        </p>
+                        <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-bottom: 20px;">
+                <div class="card-front text-white bg-warning">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">ONCE UPON AN</h3>
+                        <h4 class="card-title"><strong>ESCAPE ROOM</strong></h4>
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">ONCE UPON AN ESCAPE ROOM</h4>
+                        <p class="card-text" style="font-size:14px">
+                         Prize: Coupons worth Rs.200-300 each<br>
+Day: Both days<br>
+Time for the event: 10am-5pm<br>
+Duration: 60 minutes<br>
+Participation: Max 4 in a team<br><br>
+
+Do you want all your childhood memories to come alive? Want to feel the thrill and rush? You are at the right place. Plunge yourself into a classic, be a prince, genie or a pirate...
+
+                        </p>
+                        <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-bottom: 20px;">
+                <div class="card-front text-white bg-primary">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">DARE TO UNLOCK</h3>
+                        <h4 class="card-title"><strong>THE LOCKED ROOM</strong></h4>
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">DARE TO UNLOCK THE LOCKED ROOM</h4>
+                        <p class="card-text" style="font-size:14px">
+                        Prize: Coupons worth Rs.200-300 each<br>
+Day: Both days<br>
+Duration: 45 min<br>
+Participation: Team(5 members)<br><br>
+
+Put on your thinking caps as you get ready to solve the greatest enigma ever seen! Run against the time as you unlock the answers to this Conundrum and find...
+                        </p>
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-top:90px">
+                <div class="card-front text-white bg-success">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">T A M B O L A</h3>
+                        <!-- <h4 class="card-title"><strong>SUMMER OF CODE</strong></h4> -->
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">TAMBOLA</h4>
+                        <p class="card-text" style="font-size:14px">
+                            Prize : Coupons worth Rs.200-300 each<BR>
+Day: 8.11.2020<BR>
+Time of event: Full day<br>
+Duration: 40 minutes<br>
+Participation: Individual<br><br>
+Who doesn’t love a good-online game of Housie after a long day of work and assignments? Join us for an online version...
+                        </p>
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+               <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-top:90px">
+                <div class="card-front text-white bg-danger">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">IRRELEVANT</h3>
+                        <h4 class="card-title"><strong>RAPID FIRE</strong></h4>
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">IRREVENT RAPID FIRE</h4>
+                        <p class="card-text" style="font-size:14px">
+                       Prize: Coupons worth Rs.200-300 each<br>
+Day: 7.11.2020<br>
+Duration: 15 min<br>
+Participation: Individual<br><br>
+
+Do you have the nag of the wrong answers to those right questions? If yes, then it’s the right place for you to freshen your mood!! This time the slow...
+                       </p>
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-top:90px">
+                <div class="card-front text-white bg-secondary">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">D U M B</h3>
+                        <h4 class="card-title"><strong>CHARADES</strong></h4>
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">DUMB CHARADES</h4>
+                        <p class="card-text" style="font-size:14px">
+                       Prize: Coupons worth Rs.200-300 each<br>
+Day: 8.11.2020<br>
+Time of event: 1-2 pm<br>
+Duration: 30 min<br>
+Participation: Team(5 members)<br><br>
+
+I miss the days when I used to hang out with my friends on a hot evening, sipping that cold drink after an awful game of Jenga, and an even more awful game of spin the...
+                        </p>
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-top:90px">
+                <div class="card-front text-white bg-warning">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">QUIZ UP</h3>
+                        <!-- <h4 class="card-title"><strong>H E I S T</strong></h4> -->
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">QUIZ UP</h4>
+                        <p class="card-text" style="font-size:14px">
+                        Prize : Coupons worth Rs.200-300 each<br>
+Days: Both days<br>
+Time of event: 7.11.2020: 1-2 pm; 8.11.2020: 2-3 pm<br>
+Duration: 1 Hr<br>
+Participation: Group(Max 3 in a team) or individual both allowed<br><br>
+Experience the most exhilarating quiz on Bollywood, sports and your favourite fandoms and gear up to take the quiz and win many exciting prizes...
+                        </p>
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+                  <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-top:90px">
+                <div class="card-front text-white bg-dark">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">BEG BORROW STEAL</h3>
+                        <!-- <h4 class="card-title"><strong>V A C C I N E</strong></h4> -->
+                    </div>
+                  </div>
+              </div>
+        <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">BEG BORROW STEAL</h4>
+                        <p class="card-text" style="font-size:14px">
+                       Prize : Coupons worth Rs.200-300<br>
+Day: 7.11.2020<br>
+Time of event: 2-3 pm<br>
+Duration: 45 minutes<br>
+Participation: Individual<br><br>
+Get ready to put all your resources and contacts to a test to fetch things in an epic race. Participants will be given a list of things that they will have to fetch...
+                        </p>
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-top:90px">
+                <div class="card-front text-white bg-info">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title"> WHAT DO YOU MEME</h3>
+                        <!-- <h4 class="card-title"><strong>N A V A L - C O D E</strong></h4> -->
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">WHAT DO YOU MEME</h4>
+                        <p class="card-text" style="font-size:14px">
+                       Prize: Coupons worth Rs.200-300 each<BR>
+Day: 7.11.2020<br>
+Time for event: 12-1 pm<br>
+Duration: 1 hr<br>
+Participants: Individual Participation<br><br>
+Got a strong meme game? Do your friends like the memes that you share? Think you have the ability to out-meme others? If the answers of all these questions is a huge YES, then this...
+
+                        </p>
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-top:90px">
+                <div class="card-front text-white bg-success">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title"> CROSSWORD PUZZLES</h3>
+                        <!-- <h4 class="card-title"><strong>C A N D I E S</strong></h4> -->
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">CROSSWORD PUZZLES</h4>
+                        <p class="card-text" style="font-size:14px">
+                       Prize : Coupons worth Rs.200-300 each<br>
+Day: Both days<br>
+Time of event: 11-12 am and 3-4 pm both days<br>
+Duration: 1 hr<br>
+Participation: 4 persons/team<br><br>
+Getting numbed attending boring classes and staying at home? Miss those carefree days? Get bored? Here’s a chance to do something enthralling. Test your mind with really exciting brain teasers...
+                        </p>
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- just the end -->
+       <footer>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 footer-copyright text-white">
+                            <p>Designed By : <i>UMAR MASUD</i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <script src="scroll.js"></script>
+    <script>
+        var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Innerve20</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab" rel="stylesheet">
+     <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+ 
+ <style>
+  .card-flip > div {
+  backface-visibility: hidden;
+  transition: transform 300ms;
+  transition-timing-function: linear;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+}
+
+.card-flip:hover .card-front {
+  transform: rotateY(-180deg);
+}
+  
+.card-flip:hover .card-back {
+  transform: rotateY(0deg);
+}
+
+
+
+
+#wrapper {
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  font-size: 6em;
+  padding: 50px 0;
+}
+
+span { 
+  text-shadow: -0.06em 0 red,  0.06em 0 cyan; /* This creates the 3D effect, pretty easy, eh? */
+  letter-spacing: 0.08em; /* make sure the letters don't overlap */
+}
+
+p {
+  margin: 0;
+}
+
+/* ---------------- Stars ---------------- */
+
+
+/* ---------------- Title ---------------- */
+
+#title {
+  font-family: Helvetica, Geneva, sans-serif; /* Any font would work, but SansSerif looks better */
+}
+#title:focus {
+  outline: none;
+}
+#title span {
+  vertical-align: middle;
+  line-height: 1.0em;
+  transition: font-size 2s cubic-bezier(0, 1, 0, 1);
+}
+#title span:hover {
+  font-size: 1.2em; /* This adds a hover effect */
+  line-height: 1em;
+  transition: font-size .2s cubic-bezier(0, 0.75, 0, 1);
+}
+#title span:active {
+  font-size: 1em;
+  text-shadow: none; /* Click to disable the 3D effect */
+}
+#title span::selection {
+  background-color: red; /* This hides the selection */
+}
+
+
+/* ---------------- Slogan ---------------- */
+
+
+
+
+/* Below just some styling for the meta info */
+
+#meta {
+  color: #777;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  text-align: center;
+  text-shadow: rgba(255,255,255,0.5) 0 1px 0;
+  margin: 30px;
+}
+#meta strong { font-weight: bold; color: #000; }
+#meta p:first-child { margin-bottom: 20px; }
+#meta a { text-decoration: none; color: #7276ff; }
+#meta a:hover { color: rgba(114,118,255,0.5); }
+#meta img { vertical-align: text-bottom; }
+
+
+    h3 {
+        width: 100%;
+        font-size: 30px;
+        margin: 5px auto;
+        text-align: center;
+        color: #fff;
+        text-shadow: 0px 1px 1px #ddd,
+                     0px 2px 1px #d6d6d6,
+                     0px 3px 1px #ccc,
+                     0px 4px 1px #c5c5c5,
+                     0px 5px 1px #c1c1c1,
+                     0px 6px 1px #bbb,
+                     0px 7px 1px #777,
+                     0px 8px 3px rgba(100, 100, 100, 0.4),
+                     0px 9px 5px rgba(100, 100, 100, 0.1),
+                     0px 10px 7px rgba(100, 100, 100, 0.15),
+                     0px 11px 9px rgba(100, 100, 100, 0.2),
+                     0px 12px 11px rgba(100, 100, 100, 0.25),
+                     0px 13px 15px rgba(100, 100, 100, 0.3);
+     transition:all .8s ease-in-out;  
+      -o-transition:all .8s ease-in-out;  
+      -moz-transition:all .8s ease-in-out;  
+      -webkit-transition:all .8s ease-in-out;
+    }
+
+@media screen and (max-width:768px) { 
+body {
+        
+        background:red;
+      }
+      h3{
+        font-size:30px;
+      }
+}
+
+@media screen and (max-width:480px) { 
+body {
+        
+        background:yellow;
+      }
+      h3{
+        font-size:50px;
+      }
+}
+
+</style>
+
+
+ </head>
+
+<body style="background-color:#2b2b2b">
+    <!----NavigationBar---->
+    <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img src="img/innervelogo.png" style="height: 100px;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-danger border border-danger rounded-lg mr-2" href="index.html">Home </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-info border border-info rounded-lg" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Events
+        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="cse-it.html">CSE/IT</a>
+                            <a class="dropdown-item" href="ece.html">ECE Tech</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="fun-events.html">Fun Events</a>
+                            <a class="dropdown-item" href="work-seminar.html">Workshops/Seminars</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-info border border-info rounded-lg ml-2" href="sponsor.html">
+                            Sponsors
+                        </a></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-info border border-info rounded-lg mx-2" href="gallery.html">
+                            Gallery
+                        </a></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-info border border-info rounded-lg mr-2" href="social-campaign.html">
+                            Social Campaign
+                        </a>
+                    </li>
+                   <!-- <li class="nav-item">
+                        <a class="nav-link text-info border border-info rounded-lg mr-2" href="#contact">Contact Us</a>
+                    </li>-->
+                    <li class="nav-item">
+                    <a class="nav-link text-light btn btn-success rounded-lg" href="#login" data-toggle="modal" data-target="#modalLRForm" >Login</a>
+                </ul>
+
+            </div>
+        </nav>
+    </section>
+
+<!--Modal: Login / Register Form by mdbootstrap.com-->
+<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Modal cascading tabs-->
+      <div class="modal-c-tabs">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+              Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+              Register</a>
+          </li>
+        </ul>
+
+        <!-- Tab panels -->
+        <div class="tab-content">
+          <!--Panel 7-->
+          <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+            <!--Body-->
+            <div class="modal-body mb-1">
+              <div class="md-form form-sm mb-5">
+                <i class="fas fa-envelope prefix"></i>
+                <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
+              </div>
+
+              <div class="md-form form-sm mb-4">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
+              </div>
+              <div class="text-center mt-2">
+                <button class="btn btn-info">Log in </button>
+              </div>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options text-center text-md-right mt-1">
+                <p>Not registered? <a href="#" class="blue-text">Sign Up</a></p>
+                <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+              </div>
+              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+          <!--/.Panel 7-->
+
+          <!--Panel 8-->
+          <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+            <!--Body-->
+            <div class="modal-body">
+              <div class="md-form form-sm mb-5">
+                <i class="fas fa-envelope prefix"></i>
+                <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
+              </div>
+
+              <div class="md-form form-sm mb-5">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
+              </div>
+
+              <div class="md-form form-sm mb-4">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+              </div>
+
+              <div class="text-center form-sm mt-2">
+                <button class="btn btn-info">Sign up </button>
+              </div>
+
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options text-right">
+                <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
+              </div>
+              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          <!--/.Panel 8-->
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: Login / Register Form-->
+  
+
+
+<!-- ADD CONTENT HERE -->
+<div id="wrapper">
+  <p id="title" contenteditable="true" spellcheck="false"><span>ECE</span><span>-TECH</span><span style="padding-left:30px">EVENTS</span></p>
+</div>
+
+
+<div class="container">
+    <div class="row" style="margin:70px 0px 200px 0px;">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-bottom:20px">
+                <div class="card-front text-white bg-info">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">B O T</h3>
+                        <h4 class="card-title"><strong>SIMULATION</strong></h4>
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">BOT SIMULATION</h4>
+                        <p class="card-text" style="font-size:14px">
+                          Prize: Rs.77,000<br>
+Team Size: Max=4, Min =1<br>
+Date: 7.11.2020<br>
+Duration: 4-5 hrs<br>
+Starting Time: 10:00 am<br><br>
+Simulation is fun but with robots in the mix, it becomes a real treat. Get your robots and drones ready for the thrilling Bot Simulation because this is the race you've been waiting for...
+                        </p>
+                        <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-bottom: 20px">
+                <div class="card-front text-white bg-warning">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">C O D E</h3>
+                        <h4 class="card-title"><strong>ARDUINO</strong></h4>
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">CODE ARDUINO</h4>
+                        <p class="card-text" style="font-size:14px">
+                         Prize: Rs.50,000<br>
+Team Size: Individual participation<br>
+Date: 7.11.2020<br>
+Duration: 2-4 hrs<br>
+Starting Time: 01:00 pm<br><br>
+Arduino is the ultimate multi-tool of the electronics world. With a simple controller, you can make almost anything. One of the most important aspects of it is the code you write. If you want to test your knowledge...
+ 
+                        </p>
+                        <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-bottom: 20px">
+                <div class="card-front text-white bg-primary">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">TECHNOQUEST</h3>
+                        <!-- <h4 class="card-title"><strong>HACKATHON</strong></h4> -->
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">TECHNOQUEST</h4>
+                        <p class="card-text" style="font-size:14px">
+                        Prize: Rs.50,000<br>
+Team Size: Individual participation<br>
+Date: 8.11.2020<br>
+Duration: 2-4 hrs<br>
+Starting Time: 12:00 pm<br><br>
+Technoquest is a theme-based technical quiz. The quest will include puzzles and spin the wheel quizzes. Get ready to encounter questions with a technical quotient, mixed with a tinge of fun served ...
+                        </p>
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-top:90px">
+                <div class="card-front text-white bg-success">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">E L E C T R O</h3>
+                        <h4 class="card-title"><strong>ENGIMA</strong></h4>
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">ELECTRO ENIGMA</h4>
+                        <p class="card-text" style="font-size:14px">
+                          Prize: Rs.53,000<br>
+Team Size: Max=3, Min =1<br>
+Date: 8.11.2020<br>
+Duration: 2-4 hrs<br>
+Starting Time: 10:00 am<br><br>
+The ability to build what they need with the things available at hand is a talent every engineer has. The participating teams will choose a number according to which they will get a set of components like sensors...
+                        </p>
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+               <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-top:90px">
+                <div class="card-front text-white bg-danger">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">D I G I T</h3>
+                        <h4 class="card-title"><strong>CLUSTER</strong></h4>
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">DIGIT CLUSTER</h4>
+                        <p class="card-text" style="font-size:14px">
+                        Prize money: Rs.50,000<br>
+Team Size: Individual participation<br>
+Date: 7.11.2020<br>
+Duration: 2-4 hrs<br>
+Starting Time: 01:00 pm<br><br>
+Test your knowledge and compete with others in our online quiz – Digital Cluster.Answer aptitude questions to pass through different rounds and emerge triumphant as the ultimate winner. It will be a thrilling...
+                        </p>
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-top:90px">
+                <div class="card-front text-white bg-secondary">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">C I R C U I T</h3>
+                        <h4 class="card-title"><strong>D E B U G</strong></h4>
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">CIRCUIT DEBUG</h4>
+                        <p class="card-text" style="font-size:14px">
+                        Prize: Rs.62,000<br>
+Team Size: Min=1; Max=2<br>
+Day: 8.11.2020<br>
+Duration: 2-4 hrs<br>
+Starting Time: 01:00 pm<br><br>
+An attack of bugs has been reported recently; the only weapon you have to protect yourself is your brain. Think, think, and think again as your every move will define your..
+                        </p>
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-top:90px">
+                <div class="card-front text-white bg-warning">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">TECHNOVATE</h3>
+                        <!-- <h4 class="card-title"><strong>H E I S T</strong></h4> -->
+                    </div>
+                  </div>
+              </div>
+                <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">TECHNOVATE</h4>
+                        <p class="card-text" style="font-size:14px">
+                        Prize: Rs.57000<br>
+Team Size: Max=3; Min=1<br>
+Date: 7.11.2020<br>
+Duration: 2-4 hrs<br>
+Starting Time: 9:00 am<br><br>
+An impressive project, a vivid presentation, and confident delivery, these are the indispensable constituents of your toolkit when you gear up to Technovate. Each team will go through 3 rounds to...
+                        </p>
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card card-flip text-center" style="height:400px;margin-top:90px">
+                <div class="card-front text-white bg-info">
+                    <div class="card-body">
+                    <div class="border border-rounded pt-2" style="margin-top:120px"> 
+                        <h3 class="card-title">I D E A T H O N</h3>
+                        <!-- <h4 class="card-title"><strong>V A C C I N E</strong></h4> -->
+                    </div>
+                  </div>
+              </div>
+        <div class="card-back bg-white">
+                    <div class="card-body">
+                        <h4 class="card-title">IDEATHON</h4>
+                        <p class="card-text" style="font-size:14px">
+                        Prize: Rs.70,000<br>
+Team Size: Max=3; Min=1<br>
+Date: 8.11.2020<br>
+Duration: 2-4 hrs<br>
+Starting Time: 9:00 am<br><br>
+Everything begins with an idea. Ideathon is based upon your ideation and innovation. Take the quiz to gauge your knowledge. The shortlists will get...
+                         <p  style="position:fixed;bottom:10px"> <a href="#login" class="btn btn-dark" data-toggle="modal" data-target="#modalLRForm">Register</a><button class="btn btn-outline-secondary ml-2">Read More</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- just the end -->
+       <footer>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 footer-copyright text-white">
+                            <p>Designed By : <i>UMAR MASUD</i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer> 
+
+    <script src="scroll.js"></script>
+    <script>
+        var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
+
+</body>
+
+</html>
