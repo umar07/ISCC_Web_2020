@@ -8,13 +8,16 @@ provide with an open-source coding project. The program was open for all univers
 I had to redesign the project by adding the basic required features and as many additional features as I could to these
 existing projects accordingly. Keeping in mind the theme of Innerve this year i.e. "Error 404: Tech Undiscovered". 
 
-# Project  - Innerve SOC Website
+### Project  - Innerve SOC Website
 --------------------------------
 The project consisted of a given template for a tech fest’s website. You had to redesign and upgrade the template making the
 website as interactive as possible.
 
+ 
+
 
 ### *WEBSITE LINK*  :  https://umar07.github.io/ISCC_Web_2020/ (best viewed on laptop)
+
 
 ***Basic features included :***	
 
