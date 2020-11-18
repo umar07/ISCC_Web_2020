@@ -1,6 +1,6 @@
                                                     
-						    Innerve Summer of Code 2020
-						   ******************************
+					         Innerve Summer of Code 2020
+						*****************************
 
 Innerve is the annual Tech-Fest of IGDTUW, New Delhi.													
 Based on the famous Google summer of code , Innerve  brought it's own version of it - *The Innerve summer of code.* I was  
